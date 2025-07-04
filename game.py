@@ -3,15 +3,14 @@ import time
 import os
 import sys
 
-# Clear screen function
+
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-# List of symbols to use in the game
 SYMBOLS = ['@', '#', '$', '%', '&', '*', '!', '?', '^', '~']
 
 def play_game():
-    print("🧠 Welcome to MIND MAZE!")
+    print("Welcome to MIND MAZE!")
     print("Memorize the sequence of symbols.")
     print("You have 3 seconds to remember each sequence.")
     print("Type the exact sequence to proceed to the next level.\n")
@@ -22,27 +21,26 @@ def play_game():
 
     while True:
         clear_screen()
-        print(f"🔢 Level: {level}")
+        print(f"Level: {level}")
         sequence = [random.choice(SYMBOLS) for _ in range(level)]
 
-        # Show sequence
+   
         print("🧠 Memorize this sequence:")
         print(" ".join(sequence))
         time.sleep(3)
 
-        # Clear screen and get input
         clear_screen()
         guess = input("Enter the sequence (symbols separated by space): ").strip().split()
 
         if guess == sequence:
-            print("✅ Correct! Proceeding to next level...")
+            print("Correct! Proceeding to next level...")
             level += 1
             high_score = max(high_score, level - 1)
             time.sleep(1.5)
         else:
-            print("❌ Wrong sequence!")
+            print("Wrong sequence!")
             print(f"The correct sequence was: {' '.join(sequence)}")
-            print(f"🎯 Your highest level: {high_score}")
+            print(f" Your highest level: {high_score}")
             break
 
     print("\nThanks for playing Mind Maze!")
@@ -52,6 +50,6 @@ def play_game():
     else:
         sys.exit()
 
-# Run the game
+
 if __name__ == "__main__":
     play_game()
