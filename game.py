@@ -25,7 +25,7 @@ def play_game():
         sequence = [random.choice(SYMBOLS) for _ in range(level)]
 
    
-        print("🧠 Memorize this sequence:")
+        print("Memorize this sequence:")
         print(" ".join(sequence))
         time.sleep(3)
 
@@ -35,7 +35,7 @@ def play_game():
         if guess == sequence:
             print("Correct! Proceeding to next level...")
             level += 1
-            high_score = max(high_score, level - 1)
+            high_score = level-1
             time.sleep(1.5)
         else:
             print("Wrong sequence!")
